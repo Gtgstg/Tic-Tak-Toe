@@ -1,7 +1,6 @@
 'use strict';
 let board = [];
 let turn = 'X';
-const fs = require('fs');
 
 let inputString = '';
 let currentLine = 0;
@@ -106,20 +105,15 @@ const main = () =>{
     while (winner == null) {
         let numInput;
         
-        // Exception handling.
         // numInput will take input from user like from 1 to 9.
         // If it is not in range from 1 to 9.
         // then it will show you an error "Invalid input."
-        try {
-            numInput = parseInt(readLine(), 10);
+        let input = readLine();
+        if(input > "0" && input <= "9"){
+            numInput = parseInt(input, 10);
             console.log(numInput);
-            if (!(numInput > 0 && numInput <= 9)) {
-                console.log(
-                    "Invalid input; re-enter slot number:");
-                continue;
-            }
         }
-        catch (err) {
+        else {
             console.log(
                 "Invalid input; re-enter slot number:");
             continue;
